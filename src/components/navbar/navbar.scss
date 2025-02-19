@@ -1,71 +1,146 @@
 .navbar {
-    height: 50px;
-    border-bottom: 0.5px solid rgb(231, 228, 228);
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    color: #555;
-  
-    .wrapper {
-      width: 100%;
-      padding: 20px;
+  height: 50px;
+  border-bottom: 0.5px solid rgb(231, 228, 228);
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #555;
+  position: relative; /* For positioning dropdown */
+}
+
+.wrapper {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  border: 0.5px solid lightgray;
+  padding: 3px;
+
+  input {
+      border: none;
+      outline: none;
+      background: transparent;
+
+      &::placeholder {
+          font-size: 12px;
+      }
+  }
+}
+
+.items {
+  display: flex;
+  align-items: center;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  position: relative;
+
+  .icon {
+      font-size: 20px;
+  }
+
+  .avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer; /* Make avatar clickable */
+  }
+
+  .counter {
+      width: 15px;
+      height: 15px;
+      background-color: red;
+      border-radius: 50%;
+      color: white;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-  
-      .search {
-        display: flex;
-        align-items: center;
-        border: 0.5px solid lightgray;
-        padding: 3px;
-  
-        input {
-          border: none;
-          outline: none;
-          background: transparent;
-  
-          &::placeholder {
-            font-size: 12px;
-          }
-        }
-      }
-  
-      .items {
-        display: flex;
-        align-items: center;
-  
-        .item {
-          display: flex;
-          align-items: center;
-          margin-right: 20px;
-          position: relative;
-  
-          .icon {
-            font-size: 20px;
-          }
-  
-          .avatar {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-          }
-  
-          .counter {
-            width: 15px;
-            height: 15px;
-            background-color: red;
-            border-radius: 50%;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 10px;
-            font-weight: bold;
-            position: absolute;
-            top: -5px;
-            right: -5px;
-          }
-        }
-      }
-    }
+      justify-content: center;
+      font-size: 10px;
+      font-weight: bold;
+      position: absolute;
+      top: -5px;
+      right: -5px;
   }
+}
+
+/* Dropdown for mobile/tablet views */
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  background-color: rgb(15, 9, 9);
+  border: 1px solid #ddd;
+  color: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  flex-direction: column;
+  width: 30px;
+  padding: 10px;
+
+  .item {
+      margin: 10px 0;
+      margin-right: 0; /* Reset margin for dropdown items */
+  }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .wrapper {
+      padding: 10px;
+  }
+
+  .search {
+      display: none; /* Hide search on smaller screens */
+  }
+
+  .items {
+      /* Hide all items except profile and sidebar toggle */
+      .item:not(:first-child):not(:last-child) {
+          display: none; /* Hide everything except first (sidebar) and last (profile) */
+      }
+
+      /* Ensure sidebar toggle and profile remain visible */
+      .item:first-child, .item:last-child {
+          display: flex;
+      }
+  }
+
+  /* Show dropdown when profile is clicked */
+  .navbar.active .dropdown {
+      display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+      height: 40px; /* Smaller height for mobile */
+  }
+
+  .wrapper {
+      padding: 5px;
+  }
+
+  .item {
+      margin-right: 10px;
+  }
+
+  .avatar {
+      width: 25px;
+      height: 25px;
+  }
+
+  .icon {
+      font-size: 18px;
+  }
+}

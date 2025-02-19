@@ -1,9 +1,21 @@
 .sidebar {
-    flex: 1;
-    border-right: 0.5px solid rgb(230, 227, 227);
+    display: none;
+        border-right: 0.5px solid rgb(230, 227, 227);
     min-height: 100vh;
     background-color: white;
     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1); // Added shadow for depth
+    transition: transform 0.3s ease-in-out;
+    
+    &.open {
+      transform: translateX(0);
+    }
+    &.closed {
+      transform: translateX(-100%);
+    }
+
+  
+
+   
 
     .top {
         height: 60px; // Increased height for better spacing

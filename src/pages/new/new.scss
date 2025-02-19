@@ -1,77 +1,187 @@
 .new {
-    width: 100%;
-    display: flex;
-  
-    .newContainer {
+  width: 100%;
+  display: flex;
+
+  .newContainer {
       flex: 6;
-  
+
       .top,
       .bottom {
-        -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
-        box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
-        padding: 10px;
-        margin: 20px;
-        display: flex;
-  
-        h1 {
-          color: lightgray;
-          font-size: 20px;
-        }
-  
-        .left {
-          flex: 1;
-          text-align: center;
-  
-          img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
+          -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+          box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+          padding: 10px;
+          margin: 20px;
+          display: flex;
+
+          h1 {
+              color: lightgray;
+              font-size: 20px;
           }
-        }
-  
-        .right {
-          flex: 2;
-  
-          form {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: space-around;
-  
-            .formInput {
-              width: 40%;
-  
-              label {
-                display: flex;
-                align-items: center;
-                gap: 10px;
-  
-                .icon {
-                  cursor: pointer;
-                }
+
+          .left {
+              flex: 1;
+              text-align: center;
+
+              img {
+                  width: 100px;
+                  height: 100px;
+                  border-radius: 50%;
+                  object-fit: cover;
               }
-  
-              input {
-                width: 100%;
-                padding: 5px;
-                border: none;
-                border-bottom: 1px solid gray;
-              }
-            }
-  
-            button {
-              width: 150px;
-              padding: 10px;
-              border: none;
-              background-color: teal;
-              color: white;
-              font-weight: bold;
-              cursor: pointer;
-              margin-top: 10px;
-            }
           }
-        }
+
+          .right {
+              flex: 2;
+
+              form {
+                  display: flex;
+                  flex-wrap: wrap;
+                  gap: 20px;
+                  justify-content: space-around;
+
+                  .formInput {
+                      width: 40%;
+
+                      label {
+                          display: flex;
+                          align-items: center;
+                          gap: 10px;
+
+                          .icon {
+                              cursor: pointer;
+                          }
+                      }
+
+                      input {
+                          width: 100%;
+                          padding: 8px 10px; /* Increased vertical and horizontal padding */
+                          border: none;
+                          border-bottom: 2px solid gray; /* Thicker bottom border for better visibility */
+                          font-size: 14px; /* Ensure readable font size */
+                          line-height: 1.5; /* Improve vertical spacing inside input */
+                          background-color: #f9f9f9; /* Slight background for contrast */
+                          border-radius: 4px 4px 0 0; /* Rounded top corners for a cleaner look */
+                      }
+                  }
+
+                  button {
+                      width: 150px;
+                      padding: 10px;
+                      border: none;
+                      background-color: teal;
+                      color: white;
+                      font-weight: bold;
+                      cursor: pointer;
+                      margin-top: 10px;
+                  }
+              }
+          }
       }
-    }
   }
+}
+
+/* Media Query for Tablets (max-width: 768px) */
+@media (max-width: 768px) {
+  .newContainer {
+      flex: 1; /* Take full width on tablets */
+      padding: 5px; /* Reduce overall padding */
+  }
+
+  .top,
+  .bottom {
+      margin: 15px; /* Reduce margin */
+      padding: 8px; /* Reduce padding */
+      flex-direction: column; /* Stack left and right vertically */
+      align-items: center; /* Center items */
+
+      h1 {
+          font-size: 18px; /* Smaller heading */
+      }
+
+      .left {
+          margin-bottom: 15px; /* Space after image */
+
+          img {
+              width: 80px; /* Smaller image */
+              height: 80px;
+          }
+      }
+
+      .right {
+          flex: auto; /* No fixed flex, let it take available space */
+
+          form {
+              gap: 15px; /* Reduce gap between form inputs */
+              flex-direction: column; /* Stack form inputs vertically */
+              align-items: center; /* Center form elements */
+
+              .formInput {
+                  width: 100%; /* Wider inputs for better touch targets */
+
+                  input {
+                      padding: 6px 10px; /* Slightly less vertical padding but maintain horizontal */
+                      font-size: 14px; /* Consistent font size */
+                      border-bottom: 2px solid gray; /* Maintain thicker border */
+                      line-height: 1.5; /* Ensure good vertical spacing */
+                  }
+              }
+
+              button {
+                  width: 120px; /* Smaller button */
+                  padding: 8px; /* Smaller padding */
+              }
+          }
+      }
+  }
+}
+
+/* Media Query for Mobiles (max-width: 480px) */
+@media (max-width: 480px) {
+  .newContainer {
+      margin: 5px 0; /* Minimal margin */
+  }
+
+  .top,
+  .bottom {
+      margin: 10px; /* Even smaller margin */
+      padding: 5px; /* Minimal padding */
+      box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.3); /* Lighter shadow */
+
+      h1 {
+          font-size: 16px; /* Even smaller heading */
+      }
+
+      .left {
+          margin-bottom: 10px; /* Less space after image */
+
+          img {
+              width: 60px; /* Smaller image */
+              height: 60px;
+          }
+      }
+
+      .right {
+          form {
+              gap: 15px; /* Increased gap for better spacing */
+              .formInput {
+                  margin-bottom: 15px; /* More space between inputs */
+
+                  input {
+                      padding: 12px 15px; /* Significantly increased padding for larger inputs */
+                      font-size: 16px; /* Larger font for better readability */
+                      border-bottom: 2px solid gray; /* Maintain thicker border */
+                      line-height: 1.6; /* Increased line height for taller appearance */
+                      background-color: #f9f9f9; /* Keep slight background */
+                      border-radius: 6px 6px 0 0; /* Slightly larger radius for mobile */
+                  }
+              }
+
+              button {
+                  width: 120px; /* Slightly larger button for mobile */
+                  padding: 10px; /* More padding for button */
+                  font-size: 16px; /* Larger font for button */
+              }
+          }
+      }
+  }
+}

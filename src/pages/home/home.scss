@@ -2,7 +2,7 @@
     display: flex;
 
     .homeContainer{
-        flex: 6;
+        flex:6;
 
         .widgets, .charts{
             display: flex;
@@ -26,4 +26,49 @@
               }
     }
 }
+}
+
+
+@media (max-width: 768px) {
+    .home {
+        flex-direction: column; /* Stack children vertically */
+    }
+
+    .homeContainer {
+        flex: 1; /* Take up full width */
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    .widgets, .charts {
+        flex-direction: column; /* Stack widgets and charts vertically */
+        padding: 10px;
+        gap: 10px; /* Reduce gap */
+    }
+
+    .listContainer {
+        margin: 10px 0; /* Reduce margin */
+        padding: 15px; /* Slightly reduce padding */
+    }
+}
+
+@media (max-width: 480px) {
+    .homeContainer {
+        padding: 5px; /* Minimal padding */
+    }
+
+    .widgets, .charts {
+        padding: 5px;
+        gap: 5px; /* Smaller gap */
+    }
+
+    .listContainer {
+        margin: 5px 0; /* Minimal margin */
+        padding: 10px; /* Smaller padding */
+        box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.3); /* Lighter shadow */
+    }
+
+    .listTitle {
+        font-size: 14px; /* Smaller title font */
+        margin-bottom: 10px; /* Less margin */
+    }
 }
