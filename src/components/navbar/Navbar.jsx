@@ -25,7 +25,7 @@ const Navbar = () => {
     <div className={`navbar ${isDropdownOpen ? "active" : ""}`}>
       <div className="wrapper">
         <div className="item">
-          <ListOutlinedIcon className="icon" onClick={toggleSidebar} />
+          <ListOutlinedIcon className="icon listouticon" onClick={toggleSidebar}  />
         </div>
 
         <div className="search">

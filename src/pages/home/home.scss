@@ -31,24 +31,27 @@
 
 @media (max-width: 768px) {
     .home {
-        flex-direction: column; /* Stack children vertically */
+        /* Don't change the main flex direction */
+        /* Keep sidebar and content side by side if possible */
     }
 
     .homeContainer {
-        flex: 1; /* Take up full width */
-        padding: 10px; /* Reduce padding for smaller screens */
-    }
-
-    .widgets, .charts {
-        flex-direction: column; /* Stack widgets and charts vertically */
+        flex: 1;
         padding: 10px;
-        gap: 10px; /* Reduce gap */
+        /* Add min-width to prevent squeezing */
+        min-width: 0;
     }
 
-    .listContainer {
-        margin: 10px 0; /* Reduce margin */
-        padding: 15px; /* Slightly reduce padding */
+    /* Only stack internal components */
+    .widgets, .charts {
+        flex-direction: column;
+        padding: 10px;
+        gap: 10px;
     }
+
+    /* If sidebar needs to collapse, consider a different approach */
+    .Sidebar {
+        transform: translateX(-100%);    }
 }
 
 @media (max-width: 480px) {

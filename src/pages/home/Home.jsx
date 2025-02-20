@@ -9,6 +9,7 @@ import TranstitionTable from "../../components/table/TranstitionTable";
 
 const Home = () => {
   return (
+    <>
     <div className="home">
      <Sidebar />
       <div className="homeContainer">
@@ -30,6 +31,7 @@ const Home = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

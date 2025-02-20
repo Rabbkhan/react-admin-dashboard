@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 .new {
   width: 100%;
   display: flex;
@@ -137,51 +141,56 @@
 
 /* Media Query for Mobiles (max-width: 480px) */
 @media (max-width: 480px) {
-  .newContainer {
-      margin: 5px 0; /* Minimal margin */
+    .newContainer {
+        margin: 5px 0; /* unchanged */
+    }
+  
+    .top,
+    .bottom {
+        margin: 10px;
+        padding: 5px;
+        box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.3);
+  
+        h1 {
+            font-size: 16px;
+        }
+  
+        .left {
+            margin-bottom: 10px;
+  
+            img {
+                width: 60px;
+                height: 60px;
+            }
+        }
+  
+        .right {
+            width: 100%; /* Ensure .right takes full width of its parent */
+            form {
+                gap: 15px;
+                width: 100%; /* Ensure form takes full width of .right */
+                .formInput {
+                    margin-bottom: 15px;
+                    width: 100%; /* Already set, kept for clarity */
+                    input {
+                        width: 100%; /* Explicitly set input to full width */
+                        padding: 12px 15px;
+                        font-size: 16px;
+                        border-bottom: 2px solid gray;
+                        line-height: 1.6;
+                        background-color: #f9f9f9;
+                        border-radius: 6px 6px 0 0;
+                        box-sizing: border-box; /* Prevent padding from overflowing */
+                    }
+                }
+  
+                button {
+                    width: 100%; /* Make button full width for consistency */
+                    padding: 10px;
+                    font-size: 16px;
+                    box-sizing: border-box; /* Ensure padding behaves */
+                }
+            }
+        }
+    }
   }
-
-  .top,
-  .bottom {
-      margin: 10px; /* Even smaller margin */
-      padding: 5px; /* Minimal padding */
-      box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.3); /* Lighter shadow */
-
-      h1 {
-          font-size: 16px; /* Even smaller heading */
-      }
-
-      .left {
-          margin-bottom: 10px; /* Less space after image */
-
-          img {
-              width: 60px; /* Smaller image */
-              height: 60px;
-          }
-      }
-
-      .right {
-          form {
-              gap: 15px; /* Increased gap for better spacing */
-              .formInput {
-                  margin-bottom: 15px; /* More space between inputs */
-
-                  input {
-                      padding: 12px 15px; /* Significantly increased padding for larger inputs */
-                      font-size: 16px; /* Larger font for better readability */
-                      border-bottom: 2px solid gray; /* Maintain thicker border */
-                      line-height: 1.6; /* Increased line height for taller appearance */
-                      background-color: #f9f9f9; /* Keep slight background */
-                      border-radius: 6px 6px 0 0; /* Slightly larger radius for mobile */
-                  }
-              }
-
-              button {
-                  width: 120px; /* Slightly larger button for mobile */
-                  padding: 10px; /* More padding for button */
-                  font-size: 16px; /* Larger font for button */
-              }
-          }
-      }
-  }
-}

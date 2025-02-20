@@ -14,17 +14,26 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { DarkModeContext } from "../../context/darkModeContext";
-
+import CloseIcon from '@mui/icons-material/Close';
 const Sidebar = () => {
   const { dispatch } = useContext(DarkModeContext);
   const { sidebarOpen } = useContext(DarkModeContext);
+
+  const toggleSidebar = () => {
+    dispatch({ type: "TOGGLE_SIDEBAR" });
+  };
+
+  
   return (
     <div  className={`sidebar ${sidebarOpen ? 'open' : 'closed'}`}
     >
-      <div className="top">
+     
+     <div className="top">
+          <CloseIcon style={{color:"white"}} onClick={toggleSidebar}/>
         <Link to="/" style={{ textDecoration: "none" }}>
-          <span className="logo">khandev</span>
+          <span className="logo">khandev </span>
         </Link>
+      
       </div>
       <hr />
       <div className="center">
@@ -102,7 +111,8 @@ const Sidebar = () => {
           onClick={() => dispatch({ type: "DARK" })}
         ></div>
       </div>
-    </div>
+     </div>
+
   );
 };
 

@@ -1,45 +1,37 @@
 .sidebar {
-    display: none;
-        border-right: 0.5px solid rgb(230, 227, 227);
-    min-height: 100vh;
-    background-color: white;
-    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1); // Added shadow for depth
-    transition: transform 0.3s ease-in-out;
+    height: 100vh;
+    background-color: #ffffff;
+    transition: width 0.3s ease; // Smooth transition for width changes
     
     &.open {
-      transform: translateX(0);
+        width: 250px; // Width when sidebar is open
     }
+    
     &.closed {
-      transform: translateX(-100%);
+        width: 0; // No width when closed
+        overflow: hidden; // Hide content when closed
     }
-
-  
-
-   
 
     .top {
-        height: 60px; // Increased height for better spacing
+        height: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 0 10px;
 
         .logo {
-            font-size: 24px; // Increased font size
+            font-size: 20px;
             font-weight: bold;
             color: #6439ff;
-            letter-spacing: 1px;
         }
     }
 
     hr {
         height: 0;
-        border: 0.5px solid lightgray;
-        margin: 10px 0; // Added margin for spacing
+        border: 0.5px solid rgb(230, 227, 227);
     }
 
     .center {
-        padding-left: 20px;
+        padding-left: 10px;
 
         ul {
             list-style: none;
@@ -47,35 +39,33 @@
             padding: 0;
 
             .title {
-                font-size: 12px; // Slightly larger text for clarity
+                font-size: 10px;
                 font-weight: bold;
                 color: #999;
-                margin-top: 20px;
-                margin-bottom: 10px;
+                margin-top: 15px;
+                margin-bottom: 5px;
             }
 
             li {
                 display: flex;
                 align-items: center;
-                padding: 8px 15px; // Increased padding for better click area
+                padding: 5px;
                 cursor: pointer;
-                border-radius: 5px;
-                transition: background-color 0.3s ease; // Smooth hover transition
 
                 &:hover {
                     background-color: #ece8ff;
                 }
 
                 .icon {
-                    font-size: 20px; // Slightly larger icons
+                    font-size: 18px;
                     color: #7451f8;
                 }
 
                 span {
-                    font-size: 18px; // Slightly larger text
+                    font-size: 13px;
                     font-weight: 600;
                     color: #888;
-                    margin-left: 12px;
+                    margin-left: 10px;
                 }
             }
         }
@@ -84,34 +74,46 @@
     .bottom {
         display: flex;
         align-items: center;
-        margin: 20px;
+        margin: 10px;
 
         .colorOption {
-            width: 25px; // Slightly larger color options
-            height: 25px;
+            width: 20px;
+            height: 20px;
             border-radius: 5px;
             border: 1px solid #7451f8;
             cursor: pointer;
-            margin: 7px;
-            transition: transform 0.2s ease; // Added smooth scale effect
-
-            &:hover {
-                transform: scale(1.1); // Hover effect to make it pop
-            }
+            margin: 5px;
 
             &:nth-child(1) {
                 background-color: whitesmoke;
             }
-
             &:nth-child(2) {
                 background-color: #333;
             }
-
-            &:nth-child(3) {
-                background-color: darkblue;
-            }
         }
     }
+}
 
-  
+// Media queries for responsiveness
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        z-index: 1000;
+        
+        &.open {
+            width: 200px; // Slightly smaller for tablets
+        }
+        
+        &.closed {
+            width: 0;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        &.open {
+            width: 180px; // Even smaller for mobile
+        }
+    }
 }
